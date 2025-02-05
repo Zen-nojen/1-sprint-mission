@@ -82,6 +82,7 @@ const products = productList.map((product) => {
     );
   }
 });
+products[0].favorite();
 console.log(products);
 
 // Article
@@ -121,4 +122,5 @@ console.log(articleList);
 const articles = articleList.map((article) => {
   return new Article(article.title, article.content, article.image);
 });
+articles[0].like();
 console.log(articles);
