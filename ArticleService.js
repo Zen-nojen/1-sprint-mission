@@ -18,7 +18,16 @@ export function getArticleList(page, pageSize, keyword) {
       return res.data.list;
     })
     .catch((error) => {
-      console.log(error);
+      if (error.response) {
+        console.error("getArticleList 중 response 문제");
+        console.log(error.response);
+      } else if (error.request) {
+        console.error("getArticleList 중 request 문제");
+        console.log(error.request);
+      } else {
+        console.error("getArticleList 중 알 수 없는 문제 발생");
+        console.log(error);
+      }
     });
   return list;
 }
@@ -30,7 +39,16 @@ export function getArticle(id) {
       return res.data;
     })
     .catch((error) => {
-      console.log(error);
+      if (error.response) {
+        console.error("getArticle 중 response 문제");
+        console.log(error.response);
+      } else if (error.request) {
+        console.error("getArticle 중 request 문제");
+        console.log(error.request);
+      } else {
+        console.error("getArticle 중 알 수 없는 문제 발생");
+        console.log(error);
+      }
     });
   return data;
 }
@@ -47,7 +65,16 @@ export function createArticle(title, content, image) {
       return res.data.id;
     })
     .catch((error) => {
-      console.error(error);
+      if (error.response) {
+        console.error("createArticle 중 response 문제");
+        console.log(error.response);
+      } else if (error.request) {
+        console.error("createArticle 중 request 문제");
+        console.log(error.request);
+      } else {
+        console.error("createArticle 중 알 수 없는 문제 발생");
+        console.log(error);
+      }
     });
   return id;
 }
@@ -64,7 +91,16 @@ export function patchArticle(articleId, title, content, image) {
       return res.data.id;
     })
     .catch((error) => {
-      console.log(error);
+      if (error.response) {
+        console.error("patchArticle 중 response 문제");
+        console.log(error.response);
+      } else if (error.request) {
+        console.error("patchArticle 중 request 문제");
+        console.log(error.request);
+      } else {
+        console.error("patchArticle 중 알 수 없는 문제 발생");
+        console.log(error);
+      }
     });
   return patchedId;
 }
@@ -77,7 +113,16 @@ export function deleteArticle(id) {
       return res.data.id;
     })
     .catch((error) => {
-      console.log(error);
+      if (error.response) {
+        console.error("deleteArticle 중 response 문제");
+        console.log(error.response);
+      } else if (error.request) {
+        console.error("deleteArticle 중 request 문제");
+        console.log(error.request);
+      } else {
+        console.error("deleteArticle 중 알 수 없는 문제 발생");
+        console.log(error);
+      }
     });
   return deletedArticleId;
 }
