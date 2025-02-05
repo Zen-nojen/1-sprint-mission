@@ -52,3 +52,27 @@ console.log(deletedProductId);
 console.log("--- getProductList ---");
 const productList = await getProductList(1, 2, "패드");
 console.log(productList);
+// Product의 리스트로 변형
+
+console.log("--- Product와 ElectronicProduct의 배열로 변환 ---");
+const products = productList.map((product) => {
+  if (product.tags.includes("전자제품")) {
+    return new ElectronicProduct(
+      product.name,
+      product.description,
+      product.price,
+      product.tags,
+      product.images
+    );
+  } else {
+    return new Product(
+      product.name,
+      product.description,
+      product.price,
+      product.tags,
+      product.images
+    );
+  }
+});
+
+console.log(products);
