@@ -5,9 +5,8 @@ const instance = axios.create({
 });
 
 // getArticleList
-async function getArticleList(page, pageSize, keyword) {
-  let list;
-  list = instance
+export function getArticleList(page, pageSize, keyword) {
+  let list = instance
     .get("", {
       params: {
         page,
@@ -23,7 +22,18 @@ async function getArticleList(page, pageSize, keyword) {
     });
   return list;
 }
-// getArticle
+// getArticle : 해당 id의 data 반환
+export function getArticle(id) {
+  let data = instance
+    .get(`/${id}`)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return data;
+}
 
 // createArticle
 

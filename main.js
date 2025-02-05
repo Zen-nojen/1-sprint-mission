@@ -8,7 +8,7 @@ import {
   createProduct,
   patchProduct,
   deleteProduct,
-} from "./productService.js";
+} from "./ProductService.js";
 
 // Product 함수들 테스트
 console.log("=== Product ===");
@@ -74,5 +74,4 @@ const products = productList.map((product) => {
     );
   }
 });
-
 console.log(products);
