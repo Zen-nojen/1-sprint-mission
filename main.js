@@ -17,71 +17,71 @@ import {
   deleteArticle,
   getArticleList,
 } from "./ArticleService.js";
-// Product 함수들 테스트
-console.log("=== Product ===");
+// // Product 함수들 테스트
+// console.log("=== Product ===");
 
-// createProduct
-console.log("--- createProduct + getProduct ---");
+// // createProduct
+// console.log("--- createProduct + getProduct ---");
 
-const productId = await createProduct(
-  ["https://www.examples.com"],
-  ["전자제품"],
-  2000,
-  "애플 패드",
-  "아이패드"
-);
+// const productId = await createProduct(
+//   ["https://www.examples.com"],
+//   ["전자제품"],
+//   2000,
+//   "애플 패드",
+//   "아이패드"
+// );
 
-// getProduct
-const productData = await getProduct(productId);
-console.log(productData);
+// // getProduct
+// const productData = await getProduct(productId);
+// console.log(productData);
 
-// patchProduct
-console.log("--- patchProduct ---");
+// // patchProduct
+// console.log("--- patchProduct ---");
 
-const patchedProductId = await patchProduct(
-  productId,
-  ["https://www.patched.com"],
-  ["전자제품"],
-  3000,
-  "패치했습니다.",
-  "아이패드 패치"
-);
-const patchedProduct = await getProduct(patchedProductId);
-console.log(patchedProduct);
+// const patchedProductId = await patchProduct(
+//   productId,
+//   ["https://www.patched.com"],
+//   ["전자제품"],
+//   3000,
+//   "패치했습니다.",
+//   "아이패드 패치"
+// );
+// const patchedProduct = await getProduct(patchedProductId);
+// console.log(patchedProduct);
 
-// deleteProduct
-console.log("--- deleteProduct ---");
+// // deleteProduct
+// console.log("--- deleteProduct ---");
 
-const deletedProductId = await deleteProduct(patchedProductId);
-console.log(deletedProductId);
+// const deletedProductId = await deleteProduct(patchedProductId);
+// console.log(deletedProductId);
 
-// getProductList
-console.log("--- getProductList ---");
-const productList = await getProductList(1, 2, "패드");
-console.log(productList);
-// Product의 리스트로 변형
+// // getProductList
+// console.log("--- getProductList ---");
+// const productList = await getProductList(1, 2, "패드");
+// console.log(productList);
+// // Product의 리스트로 변형
 
-console.log("--- Product와 ElectronicProduct의 배열로 변환 ---");
-const products = productList.map((product) => {
-  if (product.tags.includes("전자제품")) {
-    return new ElectronicProduct(
-      product.name,
-      product.description,
-      product.price,
-      product.tags,
-      product.images
-    );
-  } else {
-    return new Product(
-      product.name,
-      product.description,
-      product.price,
-      product.tags,
-      product.images
-    );
-  }
-});
-console.log(products);
+// console.log("--- Product와 ElectronicProduct의 배열로 변환 ---");
+// const products = productList.map((product) => {
+//   if (product.tags.includes("전자제품")) {
+//     return new ElectronicProduct(
+//       product.name,
+//       product.description,
+//       product.price,
+//       product.tags,
+//       product.images
+//     );
+//   } else {
+//     return new Product(
+//       product.name,
+//       product.description,
+//       product.price,
+//       product.tags,
+//       product.images
+//     );
+//   }
+// });
+// console.log(products);
 
 // Article
 console.log("=== Article ===");
@@ -110,3 +110,14 @@ console.log(patchedArticle);
 console.log("--- deleteArticle ---");
 const deletedArticleId = await deleteArticle(patchedArticleId);
 console.log(deletedArticleId);
+
+// getArticleList
+console.log("--- getArticleList ---");
+const articleList = await getArticleList(1, 2, "기사");
+
+// Article 객체의 배열로 변환
+const articles = articleList.map((article) => {
+  return new Article(article.title, article.content, article.image);
+});
+
+console.log(articles);
