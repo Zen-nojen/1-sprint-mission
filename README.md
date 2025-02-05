@@ -6,7 +6,7 @@
 
 ```
 📦 프로젝트 루트
- ┣ 📜 index.js                # 애플리케이션 실행 및 기능 실행 코드
+ ┣ 📜 main.js                # 애플리케이션 실행 및 기능 실행 코드
  ┣ 📜 ProductService.js       # Product API 관련 함수 정의
  ┗ 📜 ArticleService.js       # Article API 관련 함수 정의
 ```
