@@ -35,7 +35,22 @@ export function getArticle(id) {
   return data;
 }
 
-// createArticle
+// createArticle : post 후 id 반환
+export function createArticle(title, content, image) {
+  let id = instance
+    .post("", {
+      title,
+      content,
+      image,
+    })
+    .then((res) => {
+      return res.data.id;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  return id;
+}
 
 // patchArticle
 
