@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: "https://panda-market-api-crud.vercel.app/products",
 });
 
-// getProductList : 해당 조건 get 하여 list로 반환
+// getProductList : 해당 조건 get 하여 list 반환
 export async function getProductList(page, pageSize, keyword) {
   let res;
   try {
@@ -16,8 +16,16 @@ export async function getProductList(page, pageSize, keyword) {
       },
     });
   } catch (error) {
-    console.error("getProductList 중 문제 발생");
-    console.error(error);
+    if (error.response) {
+      console.error("getProductList 중 response 문제");
+      console.log(error.response);
+    } else if (error.request) {
+      console.error("getProductList 중 request 문제");
+      console.log(error.request);
+    } else {
+      console.error("getProductList 중 알 수 없는 문제 발생");
+      console.log(error);
+    }
   }
   return res.data.list;
 }
@@ -28,7 +36,16 @@ export async function getProduct(id) {
   try {
     res = await instance.get(`/${id}`);
   } catch (error) {
-    console.log(error);
+    if (error.response) {
+      console.error("getProduct 중 response 문제");
+      console.log(error.response);
+    } else if (error.request) {
+      console.error("getProduct 중 request 문제");
+      console.log(error.request);
+    } else {
+      console.error("getProduct 중 알 수 없는 문제 발생");
+      console.log(error);
+    }
   }
   return res.data;
 }
@@ -49,8 +66,16 @@ export async function createProduct(images, tags, price, description, name) {
       throw new Error("res 문제.");
     }
   } catch (error) {
-    console.error("포스팅에 문제 발생");
-    console.log(error);
+    if (error.response) {
+      console.error("createProduct 중 response 문제");
+      console.log(error.response);
+    } else if (error.request) {
+      console.error("createProduct 중 request 문제");
+      console.log(error.request);
+    } else {
+      console.error("createProduct 중 알 수 없는 문제 발생");
+      console.log(error);
+    }
   }
   return res.data.id;
 }
@@ -67,8 +92,16 @@ export async function patchProduct(id, images, tags, price, description, name) {
       name,
     });
   } catch (error) {
-    console.error("patch 중 에러 발생");
-    console.log(error);
+    if (error.response) {
+      console.error("patchProduct 중 response 문제");
+      console.log(error.response);
+    } else if (error.request) {
+      console.error("patchProduct 중 request 문제");
+      console.log(error.request);
+    } else {
+      console.error("patchProduct 중 알 수 없는 문제 발생");
+      console.log(error);
+    }
   }
   return res.data.id;
 }
@@ -79,8 +112,17 @@ export async function deleteProduct(id) {
   try {
     res = await instance.delete(`/${id}`);
   } catch (error) {
-    console.error("delete 중 오류 발생");
-    console.log(error);
+    if (error.response) {
+      console.error("deleteProduct 중 response 문제");
+      console.log(error.response);
+    } else if (error.request) {
+      console.error("deleteProduct 중 request 문제");
+      console.log(error.request);
+    } else {
+      console.error("deleteProduct 중 알 수 없는 문제 발생");
+      console.log(error);
+    }
   }
   return res.data.id;
+  e;
 }

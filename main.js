@@ -17,71 +17,72 @@ import {
   deleteArticle,
   getArticleList,
 } from "./ArticleService.js";
-// // Product 함수들 테스트
-// console.log("=== Product ===");
 
-// // createProduct
-// console.log("--- createProduct + getProduct ---");
+// Product
+console.log("=== Product ===");
 
-// const productId = await createProduct(
-//   ["https://www.examples.com"],
-//   ["전자제품"],
-//   2000,
-//   "애플 패드",
-//   "아이패드"
-// );
+// createProduct
+console.log("--- createProduct + getProduct ---");
 
-// // getProduct
-// const productData = await getProduct(productId);
-// console.log(productData);
+const productId = await createProduct(
+  ["https://www.examples.com"],
+  ["전자제품"],
+  2000,
+  "애플 패드",
+  "아이패드"
+);
 
-// // patchProduct
-// console.log("--- patchProduct ---");
+// getProduct
+const productData = await getProduct(productId);
+console.log(productData);
 
-// const patchedProductId = await patchProduct(
-//   productId,
-//   ["https://www.patched.com"],
-//   ["전자제품"],
-//   3000,
-//   "패치했습니다.",
-//   "아이패드 패치"
-// );
-// const patchedProduct = await getProduct(patchedProductId);
-// console.log(patchedProduct);
+// patchProduct
+console.log("--- patchProduct ---");
 
-// // deleteProduct
-// console.log("--- deleteProduct ---");
+const patchedProductId = await patchProduct(
+  productId,
+  ["https://www.patched.com"],
+  ["전자제품"],
+  3000,
+  "패치했습니다.",
+  "아이패드 패치"
+);
+const patchedProduct = await getProduct(patchedProductId);
+console.log(patchedProduct);
 
-// const deletedProductId = await deleteProduct(patchedProductId);
-// console.log(deletedProductId);
+// deleteProduct
+console.log("--- deleteProduct ---");
 
-// // getProductList
-// console.log("--- getProductList ---");
-// const productList = await getProductList(1, 2, "패드");
-// console.log(productList);
-// // Product의 리스트로 변형
+const deletedProductId = await deleteProduct(patchedProductId);
+console.log(deletedProductId);
 
-// console.log("--- Product와 ElectronicProduct의 배열로 변환 ---");
-// const products = productList.map((product) => {
-//   if (product.tags.includes("전자제품")) {
-//     return new ElectronicProduct(
-//       product.name,
-//       product.description,
-//       product.price,
-//       product.tags,
-//       product.images
-//     );
-//   } else {
-//     return new Product(
-//       product.name,
-//       product.description,
-//       product.price,
-//       product.tags,
-//       product.images
-//     );
-//   }
-// });
-// console.log(products);
+// getProductList
+console.log("--- getProductList ---");
+const productList = await getProductList(1, 2, "패드");
+console.log(productList);
+// Product의 리스트로 변형
+
+console.log("--- Product와 ElectronicProduct의 배열로 변환 ---");
+const products = productList.map((product) => {
+  if (product.tags.includes("전자제품")) {
+    return new ElectronicProduct(
+      product.name,
+      product.description,
+      product.price,
+      product.tags,
+      product.images
+    );
+  } else {
+    return new Product(
+      product.name,
+      product.description,
+      product.price,
+      product.tags,
+      product.images
+    );
+  }
+});
+console.log(products);
 
 // Article
 console.log("=== Article ===");
