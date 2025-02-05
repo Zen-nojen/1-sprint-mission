@@ -53,3 +53,21 @@ async function createProduct(images, tags, price, description, name) {
   }
   return res.data.id;
 }
+
+// patchProduct : patch 후 id 반환
+async function patchProduct(id, images, tags, price, description, name) {
+  let res;
+  try {
+    res = await instance.patch(`/${id}`, {
+      images,
+      tags,
+      price,
+      description,
+      name,
+    });
+  } catch (error) {
+    console.error("patch 중 에러 발생");
+    console.log(error);
+  }
+  return res.data.id;
+}
