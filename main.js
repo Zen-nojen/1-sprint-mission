@@ -114,10 +114,4 @@ console.log(deletedArticleId);
 // getArticleList
 console.log("--- getArticleList ---");
 const articleList = await getArticleList(1, 2, "기사");
-
-// Article 객체의 배열로 변환
-const articles = articleList.map((article) => {
-  return new Article(article.title, article.content, article.image);
-});
-
-console.log(articles);
+console.log(articleList);
