@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 // getProductList : 해당 조건 get 하여 list로 반환
-async function getProductList(page, pageSize, keyword) {
+export async function getProductList(page, pageSize, keyword) {
   let res;
   try {
     res = await instance.get("", {
@@ -22,7 +22,7 @@ async function getProductList(page, pageSize, keyword) {
 }
 
 // getProduct : 해당 id의 data 반환
-async function getProduct(id) {
+export async function getProduct(id) {
   let res;
   try {
     res = await instance.get(`/${id}`);
@@ -33,7 +33,7 @@ async function getProduct(id) {
 }
 
 // createProduct : 포스트 후 id 반환
-async function createProduct(images, tags, price, description, name) {
+export async function createProduct(images, tags, price, description, name) {
   let res;
   try {
     res = await instance.post("", {
@@ -55,7 +55,7 @@ async function createProduct(images, tags, price, description, name) {
 }
 
 // patchProduct : patch 후 id 반환
-async function patchProduct(id, images, tags, price, description, name) {
+export async function patchProduct(id, images, tags, price, description, name) {
   let res;
   try {
     res = await instance.patch(`/${id}`, {
@@ -67,6 +67,18 @@ async function patchProduct(id, images, tags, price, description, name) {
     });
   } catch (error) {
     console.error("patch 중 에러 발생");
+    console.log(error);
+  }
+  return res.data.id;
+}
+
+// deleteProduct : 지운 후 성공 시 삭제된 id 반환
+export async function deleteProduct(id) {
+  let res;
+  try {
+    res = await instance.delete(`/${id}`);
+  } catch (error) {
+    console.error("delete 중 오류 발생");
     console.log(error);
   }
   return res.data.id;

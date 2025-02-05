@@ -2,7 +2,16 @@ import Product from "./Product.js";
 import ElectronicProduct from "./ElectronicProduct.js";
 import Article from "./Article.js";
 
-//test
+import {
+  getProductList,
+  getProduct,
+  createProduct,
+  patchProduct,
+  deleteProduct,
+} from "./productService.js";
+
+// Product 함수들 테스트
+
 const product1Id = await createProduct(
   ["https://www.examples.com"],
   ["전자제품"],
@@ -24,3 +33,6 @@ const patchedProductId = await patchProduct(
 );
 const patchedData = await getProduct(patchedProductId);
 console.log(patchedData);
+
+const deletedProductId = await deleteProduct(patchedProductId);
+console.log(deletedProductId);
