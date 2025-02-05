@@ -69,4 +69,15 @@ export function patchArticle(articleId, title, content, image) {
   return patchedId;
 }
 
-// deleteArticle
+// deleteArticle : delete 후 지워진 id 반환
+export function deleteArticle(id) {
+  let deletedArticleId = instance
+    .delete(`/${id}`)
+    .then((res) => {
+      return res.data.id;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return deletedArticleId;
+}

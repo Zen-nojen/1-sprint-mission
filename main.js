@@ -10,7 +10,13 @@ import {
   deleteProduct,
 } from "./ProductService.js";
 
-import { getArticle, createArticle, patchArticle } from "./ArticleService.js";
+import {
+  getArticle,
+  createArticle,
+  patchArticle,
+  deleteArticle,
+  getArticleList,
+} from "./ArticleService.js";
 // Product 함수들 테스트
 console.log("=== Product ===");
 
@@ -91,11 +97,16 @@ console.log(articleData);
 
 // patchArticle
 console.log("--- patchArticle ---");
-const patchedId = await patchArticle(
+const patchedArticleId = await patchArticle(
   articleId,
   "패치 기사",
   "패치되었습니다.",
   "https://www.example.com"
 );
-const patchedArticle = await getArticle(patchedId);
+const patchedArticle = await getArticle(patchedArticleId);
 console.log(patchedArticle);
+
+// deleteArticle
+console.log("--- deleteArticle ---");
+const deletedArticleId = await deleteArticle(patchedArticleId);
+console.log(deletedArticleId);
