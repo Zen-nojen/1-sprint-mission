@@ -11,6 +11,8 @@ import {
 } from "./productService.js";
 
 // Product 함수들 테스트
+console.log("=== Product ===");
+console.log("--- createProduct + getProduct ---");
 
 const product1Id = await createProduct(
   ["https://www.examples.com"],
@@ -23,6 +25,8 @@ const product1Id = await createProduct(
 const product1Data = await getProduct(product1Id);
 console.log(product1Data);
 
+console.log("--- patchProduct ---");
+
 const patchedProductId = await patchProduct(
   product1Id,
   ["https://www.patched.com"],
@@ -33,6 +37,8 @@ const patchedProductId = await patchProduct(
 );
 const patchedData = await getProduct(patchedProductId);
 console.log(patchedData);
+
+console.log("--- deleteProduct ---");
 
 const deletedProductId = await deleteProduct(patchedProductId);
 console.log(deletedProductId);
