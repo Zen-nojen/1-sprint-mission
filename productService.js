@@ -16,6 +16,7 @@ export async function getProductList(page, pageSize, keyword) {
       },
     });
   } catch (error) {
+    console.error("getProductList 중 문제 발생");
     console.error(error);
   }
   return res.data.list;

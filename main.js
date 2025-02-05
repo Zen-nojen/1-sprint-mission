@@ -12,6 +12,8 @@ import {
 
 // Product 함수들 테스트
 console.log("=== Product ===");
+
+// createProduct
 console.log("--- createProduct + getProduct ---");
 
 const product1Id = await createProduct(
@@ -22,9 +24,11 @@ const product1Id = await createProduct(
   "아이패드"
 );
 
+// getProduct
 const product1Data = await getProduct(product1Id);
 console.log(product1Data);
 
+// patchProduct
 console.log("--- patchProduct ---");
 
 const patchedProductId = await patchProduct(
@@ -38,7 +42,13 @@ const patchedProductId = await patchProduct(
 const patchedData = await getProduct(patchedProductId);
 console.log(patchedData);
 
+// deleteProduct
 console.log("--- deleteProduct ---");
 
 const deletedProductId = await deleteProduct(patchedProductId);
 console.log(deletedProductId);
+
+// getProductList
+console.log("--- getProductList ---");
+const productList = await getProductList(1, 2, "패드");
+console.log(productList);
