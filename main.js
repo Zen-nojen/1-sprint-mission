@@ -116,3 +116,9 @@ console.log(deletedArticleId);
 console.log("--- getArticleList ---");
 const articleList = await getArticleList(1, 2, "기사");
 console.log(articleList);
+
+// Article의 리스트로 변경
+const articles = articleList.map((article) => {
+  return new Article(article.title, article.content, article.image);
+});
+console.log(articles);

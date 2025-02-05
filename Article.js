@@ -5,6 +5,7 @@ export default class Article {
     this.image = image;
     this.writer = writer;
     this._likeCount = likeCount;
+    this.createdAt = new Date();
   }
 
   set likeCount(value) {
