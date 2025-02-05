@@ -1,7 +1,8 @@
 export default class Article {
-  constructor(title, content, writer = "unknown", likeCount) {
+  constructor(title, content, image, writer = "unknown", likeCount = 0) {
     this.title = title;
     this.content = content;
+    this.image = image;
     this.writer = writer;
     this._likeCount = likeCount;
   }
