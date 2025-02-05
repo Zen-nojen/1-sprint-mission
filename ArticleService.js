@@ -52,6 +52,21 @@ export function createArticle(title, content, image) {
   return id;
 }
 
-// patchArticle
+// patchArticle : patch 후 id 반환
+export function patchArticle(articleId, title, content, image) {
+  let patchedId = instance
+    .patch(`/${articleId}`, {
+      title,
+      content,
+      image,
+    })
+    .then((res) => {
+      return res.data.id;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return patchedId;
+}
 
 // deleteArticle

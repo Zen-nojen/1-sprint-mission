@@ -10,7 +10,7 @@ import {
   deleteProduct,
 } from "./ProductService.js";
 
-import { getArticle, createArticle } from "./ArticleService.js";
+import { getArticle, createArticle, patchArticle } from "./ArticleService.js";
 // Product 함수들 테스트
 console.log("=== Product ===");
 
@@ -40,8 +40,8 @@ const patchedProductId = await patchProduct(
   "패치했습니다.",
   "아이패드 패치"
 );
-const patchedData = await getProduct(patchedProductId);
-console.log(patchedData);
+const patchedProduct = await getProduct(patchedProductId);
+console.log(patchedProduct);
 
 // deleteProduct
 console.log("--- deleteProduct ---");
@@ -78,13 +78,24 @@ const products = productList.map((product) => {
 console.log(products);
 
 // Article
-
+console.log("=== Article ===");
 // createArticle + getArticle
+console.log("--- createArticle + getArticle ---");
 const articleId = await createArticle(
   "샘플 기사",
   "샘플 기사엔 샘플이 있습니다.",
   "https://www.example.com"
 );
-
 const articleData = await getArticle(articleId);
 console.log(articleData);
+
+// patchArticle
+console.log("--- patchArticle ---");
+const patchedId = await patchArticle(
+  articleId,
+  "패치 기사",
+  "패치되었습니다.",
+  "https://www.example.com"
+);
+const patchedArticle = await getArticle(patchedId);
+console.log(patchedArticle);
