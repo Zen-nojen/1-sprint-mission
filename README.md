@@ -1,20 +1,11 @@
-# 제목 : sprint2
+# Sprint1 
 
 ---
 
-1. 인덱싱을 활용해보기
-2. 인덱싱이 되고 있습니다.
++ Sprint1 미션이었던 데이터 클래스화 및 API 활용 데이터 처리 실습을 저장했습니다.
+  - main.js
+  - ArticleSerice.js
+  - ProductService.js
 
-+ 불릿을 나타내기 위해서는 +, -, *을 활용한다.
-  - 이렇게 탭을 누른 후 불릿을 타나내면 흰 불릿으로 들여쓰기된다.
+<https://panda-market-api-crud.vercel.app/docs/#/>
 
-**나는 Bold체**
-*나는 Italic체*
-***Bold + Italic***
-~~취소선~~
-
-> 인용문
->> 인용문 추가
-
-<https://www.youtube.com/>
-[유튜브](https://www.youtube.com/, "부연설명은 이렇게")
