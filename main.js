@@ -91,7 +91,6 @@ const article1 = new Article({
     image: 'https://example.com/...',
     content: '게시글 내용입니다.',
     title: '게시글 제목입니다.',
-    createdAt: new Date().toISOString(),
 });
 console.log(article1);
 

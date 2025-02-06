@@ -6,7 +6,7 @@ export class Article {
         this.writer = writer; //작성자
         this.likeCount = likeCount; //좋아요 수
         this.image = image; //사진
-        this.createdAt = createdAt; //생성일자
+        this.createdAt = new Date(); //생성일자
     }
 
     like() {
