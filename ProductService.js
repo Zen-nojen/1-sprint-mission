@@ -18,8 +18,8 @@ export class Product {
 
 //ElectronicProduct 클래스
 export class ElectronicProduct extends Product {
-    constructor(name, description, price, tags, images, favoriteCount, manufacturer) {
-        super(name, description, price, tags, images, favoriteCount); //Prodcut를 상속
+    constructor({ name, description, price, tags, images, favoriteCount, manufacturer }) {
+        super({ name, description, price, tags, images, favoriteCount }); //Prodcut를 상속
         this.manufacturer = manufacturer; //제조사
     }
 }
@@ -66,7 +66,7 @@ export const getProduct = async (id) => {
 };
 
 //상품 만들기 메소드
-export const createProduct = async (images, tags, price, description, name) => {
+export const createProduct = async ({ images, tags, price, description, name }) => {
     try {
         const productData = { images, tags, price, description, name };
         const res = await instance.post('/products', productData);

@@ -18,12 +18,9 @@ const url = new URL('https://panda-market-api-crud.vercel.app/articles');
 
 //기사 리스트 가져오기 메소드
 export const getArticleList = (queryParams = { page: 1, pageSize: 10, keyword: '' }) => {
-    fetch(`${url}?${queryParams}`)
+    return fetch(`${url}?${queryParams}`)
         .then((res) => {
             return res.json();
-        })
-        .then((body) => {
-            console.log(body);
         })
         .catch((error) => {
             console.log(error);
@@ -45,7 +42,7 @@ export const getArticle = (id) => {
 };
 
 //기사 만들기 메소드
-export const createArticle = (title, content, image) => {
+export const createArticle = ({ title, content, image }) => {
     const articleData = { title, content, image };
     //Promise 체인 밖에서 return 하여 id 값을 반환
     return fetch(url, {

@@ -11,47 +11,28 @@ import {
 
 //Product 리스트 가져오기
 const productsRes = await getProductList();
-console.log(productsRes.data);
+const products = productsRes.data.list.map((element) => {
+    let product;
 
-//전자제품 인스턴스 선언
-const products1 = new ElectronicProduct({
+    if (element.tags.includes('전자제품')) {
+        product = new ElectronicProduct(element);
+    } else {
+        product = new Product(element);
+    }
+
+    return product;
+});
+console.log(products);
+
+//전자제품 인스턴스 POST 요청
+const produceRes1 = await createProduct({
     images: ['https://example.com/...'],
     tags: ['전자제품'],
     price: 0,
     description: 'string',
     name: '상품 이름',
 });
-console.log(products1);
-
-//일반제품 인스턴스 선언
-const products2 = new Product({
-    images: ['https://example.com/...'],
-    tags: ['일반제품'],
-    price: 0,
-    description: 'string',
-    name: '상품 이름',
-});
-console.log(products2);
-
-//전자제품 인스턴스 POST 요청
-const produceRes1 = await createProduct(
-    products1.images,
-    products1.tags,
-    products1.price,
-    products1.description,
-    products1.name
-);
 console.log(produceRes1.data);
-
-//일반제품 인스턴스 POST 요청
-const produceRes2 = await createProduct(
-    products2.images,
-    products2.tags,
-    products2.price,
-    products2.description,
-    products2.name
-);
-console.log(produceRes2.data);
 
 /* ## 나머지 메소드 활용 ##
 
@@ -84,18 +65,25 @@ try {
 */
 
 //Article 리스트 가져오기
-const articles = getArticleList();
+getArticleList()
+    .then((getArticleListRes) => {
+        const articles = getArticleListRes.list.map((element) => {
+            const article = new Article(element);
 
-//기사 인스턴스 선언
-const article1 = new Article({
+            return article;
+        });
+        console.log(articles);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
+//기사 인스턴스 POST 요청
+createArticle({
     image: 'https://example.com/...',
     content: '게시글 내용입니다.',
     title: '게시글 제목입니다.',
-});
-console.log(article1);
-
-//기사 인스턴스 POST 요청
-createArticle(article1.title, article1.content, article1.image)
+})
     .then((id) => {
         console.log('생성된 id:', id);
     })
