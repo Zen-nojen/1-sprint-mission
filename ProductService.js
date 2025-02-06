@@ -1,26 +1,22 @@
 import axios from 'axios';
-
-//Product 클래스
 export class Product {
     constructor({ name, description, price, tags, images, favoriteCount }) {
-        this.name = name; //상품명
-        this.description = description; //상품 설명
-        this.price = price; //판매 가격
-        this.tags = tags; //해시태그 배열
-        this.images = images; //이미지 배열
-        this.favoriteCount = favoriteCount; //찜하기 수
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.tags = tags;
+        this.images = images;
+        this.favoriteCount = favoriteCount;
     }
 
     favorite() {
         this.favoriteCount++;
     }
 }
-
-//ElectronicProduct 클래스
 export class ElectronicProduct extends Product {
     constructor({ name, description, price, tags, images, favoriteCount, manufacturer }) {
-        super({ name, description, price, tags, images, favoriteCount }); //Prodcut를 상속
-        this.manufacturer = manufacturer; //제조사
+        super({ name, description, price, tags, images, favoriteCount });
+        this.manufacturer = manufacturer;
     }
 }
 
@@ -29,7 +25,6 @@ const instance = axios.create({
     timeout: 10000,
 });
 
-//상품 리스트 가져오기 메소드
 export const getProductList = async (queryParams = { page: 1, pageSize: 10, keyword: '' }) => {
     try {
         const res = await instance.get(`/products?`, { params: queryParams });
@@ -38,16 +33,15 @@ export const getProductList = async (queryParams = { page: 1, pageSize: 10, keyw
         if (e.response) {
             console.log(e.response.status);
             console.log(e.response.data);
-            throw new Error('가져오는 중 오류 발생');
+            throw new Error('Error occurred while fetching');
         } else if (e.request) {
-            console.log('리퀘스트는 전송되었지만 응답이 오지 않은 오류');
+            console.log('Request was sent, but no response received');
         } else {
-            console.log('그 외 오류 발생');
+            console.log('Other error occurred');
         }
     }
 };
 
-//특정 상품 가져오기 메소드
 export const getProduct = async (id) => {
     try {
         const res = await instance.get(`/products/${id}`);
@@ -56,16 +50,15 @@ export const getProduct = async (id) => {
         if (e.response) {
             console.log(e.response.status);
             console.log(e.response.data);
-            throw new Error('가져오는 중 오류 발생');
+            throw new Error('Error occurred while fetching');
         } else if (e.request) {
-            console.log('리퀘스트는 전송되었지만 응답이 오지 않은 오류');
+            console.log('Request was sent, but no response received');
         } else {
-            console.log('그 외 오류 발생');
+            console.log('Other error occurred');
         }
     }
 };
 
-//상품 만들기 메소드
 export const createProduct = async ({ images, tags, price, description, name }) => {
     try {
         const productData = { images, tags, price, description, name };
@@ -75,16 +68,15 @@ export const createProduct = async ({ images, tags, price, description, name }) 
         if (e.response) {
             console.log(e.response.status);
             console.log(e.response.data);
-            throw new Error('가져오는 중 오류 발생');
+            throw new Error('Error occurred while fetching');
         } else if (e.request) {
-            console.log('리퀘스트는 전송되었지만 응답이 오지 않은 오류');
+            console.log('Request was sent, but no response received');
         } else {
-            console.log('그 외 오류 발생');
+            console.log('Other error occurred');
         }
     }
 };
 
-//상품 업데이트 메소드
 export const patchProduct = async (id, updatedContent) => {
     try {
         const res = await instance.patch(`/products/${id}`, updatedContent);
@@ -93,16 +85,15 @@ export const patchProduct = async (id, updatedContent) => {
         if (e.response) {
             console.log(e.response.status);
             console.log(e.response.data);
-            throw new Error('상품 업데이트 실패');
+            throw new Error('Product update failed');
         } else if (e.request) {
-            console.log('리퀘스트는 전송되었지만 응답이 오지 않은 오류');
+            console.log('Request was sent, but no response received');
         } else {
-            console.log('그 외 오류 발생');
+            console.log('Other error occurred');
         }
     }
 };
 
-//상품 삭제하기 메소드
 export const deleteProduct = async (id) => {
     try {
         const res = await instance.delete(`/products/${id}`);
@@ -111,11 +102,11 @@ export const deleteProduct = async (id) => {
         if (e.response) {
             console.log(e.response.status);
             console.log(e.response.data);
-            throw new Error('상품 삭제 실패');
+            throw new Error('Product deletion failed');
         } else if (e.request) {
-            console.log('리퀘스트는 전송되었지만 응답이 오지 않은 오류');
+            console.log('Request was sent, but no response received');
         } else {
-            console.log('그 외 오류 발생');
+            console.log('Other error occurred');
         }
     }
 };
