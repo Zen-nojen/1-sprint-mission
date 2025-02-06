@@ -28,26 +28,19 @@ export function getArticleList(
     })
     .then((response) => {
       console.log("getArticleList 성공!");
+      console.log(response.data)
       return response.data;
     })
-    .then((response) => {
-      return response;
-    })
     .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+      if (error.response ||error.response.status<200||error.response.status>=300) {
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
       } else if (error.request) {
-        // 요청이 전송되었지만, 응답이 수신되지 않았습니다.
-        // 'error.request'는 브라우저에서 XMLHtpRequest 인스턴스이고,
-        // node.js에서는 http.ClientRequest 인스턴스입니다.
-        console.log(error.request);
+        console.error(error.request);
       } else {
-        // 오류가 발생한 요청을 설정하는 동안 문제가 발생했습니다.
-        console.log("Error", error.message);
+        console.error("Error", error.message);
       }
-      console.log(error.config);
     });
   return res;
 }
@@ -59,20 +52,15 @@ export function getArticle(id) {
       console.log("createArticle 성공!");
     })
     .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+      if (error.response ||error.response.status<200||error.response.status>=300) {
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
       } else if (error.request) {
-        // 요청이 전송되었지만, 응답이 수신되지 않았습니다.
-        // 'error.request'는 브라우저에서 XMLHtpRequest 인스턴스이고,
-        // node.js에서는 http.ClientRequest 인스턴스입니다.
-        console.log(error.request);
+        console.error(error.request);
       } else {
-        // 오류가 발생한 요청을 설정하는 동안 문제가 발생했습니다.
-        console.log("Error", error.message);
+        console.error("Error", error.message);
       }
-      console.log(error.config);
     });
   return res;
 }
@@ -84,20 +72,15 @@ export function createArticle(body) {
       console.log("getArticle 성공!");
     })
     .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+      if (error.response ||error.response.status<200||error.response.status>=300) {
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
       } else if (error.request) {
-        // 요청이 전송되었지만, 응답이 수신되지 않았습니다.
-        // 'error.request'는 브라우저에서 XMLHtpRequest 인스턴스이고,
-        // node.js에서는 http.ClientRequest 인스턴스입니다.
-        console.log(error.request);
+        console.error(error.request);
       } else {
-        // 오류가 발생한 요청을 설정하는 동안 문제가 발생했습니다.
-        console.log("Error", error.message);
+        console.error("Error", error.message);
       }
-      console.log(error.config);
     });
   return res;
 }
@@ -109,20 +92,15 @@ export function patchArticle(id, body) {
       console.log("patchArticle 성공!");
     })
     .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+      if (error.response ||error.response.status<200||error.response.status>=300) {
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
       } else if (error.request) {
-        // 요청이 전송되었지만, 응답이 수신되지 않았습니다.
-        // 'error.request'는 브라우저에서 XMLHtpRequest 인스턴스이고,
-        // node.js에서는 http.ClientRequest 인스턴스입니다.
-        console.log(error.request);
+        console.error(error.request);
       } else {
-        // 오류가 발생한 요청을 설정하는 동안 문제가 발생했습니다.
-        console.log("Error", error.message);
+        console.error("Error", error.message);
       }
-      console.log(error.config);
     });
   return res;
 }
@@ -134,20 +112,15 @@ export function deleteArticle(id) {
       console.log("deleteArticle 성공!");
     })
     .catch(function (error) {
-      if (error.response) {
-        console.log(error.response.data);
-        console.log(error.response.status);
-        console.log(error.response.headers);
+      if (error.response ||error.response.status<200||error.response.status>=300) {
+        console.error(error.response.data);
+        console.error(error.response.status);
+        console.error(error.response.headers);
       } else if (error.request) {
-        // 요청이 전송되었지만, 응답이 수신되지 않았습니다.
-        // 'error.request'는 브라우저에서 XMLHtpRequest 인스턴스이고,
-        // node.js에서는 http.ClientRequest 인스턴스입니다.
-        console.log(error.request);
+        console.error(error.request);
       } else {
-        // 오류가 발생한 요청을 설정하는 동안 문제가 발생했습니다.
-        console.log("Error", error.message);
+        console.error("Error", error.message);
       }
-      console.log(error.config);
     });
   return res;
 }
