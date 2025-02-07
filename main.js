@@ -1,3 +1,19 @@
+import {
+  getArticleList,
+  getArticle,
+  createArticle,
+  patchArticle,
+  deleteArticle,
+} from "./articleService.js"
+getArticleList()
+getArticle()
+createArticle("안녕", "고슴도치는 기여워", "https://example.com/...")
+patchArticle(182, "만지지마", "돈땃쥐미","https://example.com/...")
+deleteArticle(182)
+
+// npm이 제대로 inport 됐는지 확인하기
+
+// 1번
 class Product {
   constructor(name, description, price, tags, images, favoriteCount) {
   this.name = name;
