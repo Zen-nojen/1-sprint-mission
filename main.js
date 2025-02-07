@@ -1,3 +1,11 @@
+import { 
+  getProductList,
+  getProduct,
+  createProduct,
+  patchProduct,
+  deleteProduct,
+} from "./productService.js"
+
 import {
   getArticleList,
   getArticle,
@@ -5,6 +13,13 @@ import {
   patchArticle,
   deleteArticle,
 } from "./articleService.js"
+
+getProductList()
+getProduct(216)
+createProduct("샘샘미", "옴뇸뇸", 7800, "전자제품", "https://example.com/...")
+patchProduct(222, "샘샘미")
+deleteProduct(222)
+
 getArticleList()
 getArticle()
 createArticle("안녕", "고슴도치는 기여워", "https://example.com/...")
