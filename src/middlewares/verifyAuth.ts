@@ -11,7 +11,7 @@ import { RequestHandler } from 'express';
 export const verifyArticleAuth: RequestHandler = withAsync(async (req, res, next) => {
   const userId = req.user?.userId;
   const { id: articleId } = create(req.params, IdParamsStruct);
-  const article = await articlesRepository.getById(articleId);
+  const article = await articlesRepository.getByIdOrThrow(articleId);
   if (!article) {
     throw new NotFoundError(`Article with id ${articleId} is not found`);
   }
