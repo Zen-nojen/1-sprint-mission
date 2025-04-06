@@ -7,7 +7,7 @@ import {
 } from '../structs/articlesStructs';
 import { CreateCommentBodyStruct, GetCommentListParamsStruct } from '../structs/commentsStruct';
 import { RequestHandler } from 'express';
-import * as articlesService from '../services/articlesService';
+import * as articlesService from '../services/articleService';
 import {
   CreateArticleDTO,
   DeleteArticleDTO,

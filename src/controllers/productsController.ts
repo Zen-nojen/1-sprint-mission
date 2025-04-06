@@ -15,7 +15,7 @@ import {
   LikeProductDTO,
   UpdateProductDTO,
 } from '../Dto/productDto';
-import * as productsService from '../services/productsService';
+import * as productsService from '../services/productService';
 import { CreateCommentDTO, GetCommentsForProductDTO } from '../Dto/commentDto';
 import { EntityType } from '../typings/EnumTypes';
 import * as commentsService from '../services/commentsService';
